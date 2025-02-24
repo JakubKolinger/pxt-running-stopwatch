@@ -13,7 +13,7 @@ Sensors.OnLightDrop(function() {
     
 })
 
-input.onButtonPressed(Button.B, function() {
+input.onButtonPressed(Button.AB, function() {
     music.playTone(300, 300)
     radio.sendNumber(0)
     start = false
@@ -39,7 +39,7 @@ radio.onReceivedNumber(function (receivedNumber: number) {
     }
 })
 
-input.onButtonPressed(Button.AB, function () {
+input.onButtonPressed(Button.B, function () {
     basic.showNumber(runtime)
     basic.clearScreen()
 })
