@@ -27,9 +27,19 @@ input.onButtonPressed(Button.A, function() {
 })
 
 radio.onReceivedNumber(function (receivedNumber: number) {
-    music.playTone(440, 400)
-    basic.showNumber(receivedNumber)
-    runtime = receivedNumber
+    if (receivedNumber === 2) {
+        start = false
+        runtime = 0
+        Sensors.SetLightLevel()
+    } else {
+        music.playTone(440, 400)
+        basic.showNumber(receivedNumber)
+        runtime = receivedNumber
+    }
 })
+
+
+
+
 
 
