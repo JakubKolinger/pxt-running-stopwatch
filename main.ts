@@ -41,6 +41,7 @@ radio.onReceivedNumber(function (receivedNumber: number) {
 
 input.onButtonPressed(Button.AB, function () {
     basic.showNumber(runtime)
+    basic.clearScreen()
 })
 
 
