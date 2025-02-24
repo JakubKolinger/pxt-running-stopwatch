@@ -1,39 +1,34 @@
-radio.setGroup(999)
-let start: boolean
-start = false
-let timer: boolean
-timer = false
+radio.setGroup(53)
+let start = true
+let runtime = 0
+
 Sensors.SetLightLevel()
 
 Sensors.OnLightDrop(function() {
-    if (start = true){
+    if (start === true){
+        music.playTone(520, 400)
         radio.sendNumber(1)
-    }
-    
-})
-
-input.onButtonPressed(Button.AB, function() {
-    radio.sendNumber(0)
-})
-
-radio.onReceivedNumber(function(receivedNumber: number) {
-    
-    for (let index = 0; index <= 9; index++) {
-        basic.showNumber(index)
-    }
-
-    
-})
-
-
-basic.forever(function() {
-
-    if (input.buttonIsPressed(Button.A)){
-        start = true
-    }
-
-    if (input.buttonIsPressed(Button.B)){
         start = false
     }
     
 })
+
+input.onButtonPressed(Button.B, function() {
+    music.playTone(300, 300)
+    radio.sendNumber(0)
+    start = false
+    basic.showString("N")
+    Sensors.SetLightLevel()
+})
+
+input.onButtonPressed(Button.A, function() {
+    start = true
+})
+
+radio.onReceivedNumber(function (receivedNumber: number) {
+    music.playTone(440, 400)
+    basic.showNumber(receivedNumber)
+    runtime = receivedNumber
+})
+
+
