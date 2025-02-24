@@ -1,5 +1,5 @@
 radio.setGroup(53)
-let start = true
+let start = false
 let runtime = 0
 
 Sensors.SetLightLevel()
@@ -30,12 +30,17 @@ radio.onReceivedNumber(function (receivedNumber: number) {
     if (receivedNumber === 2) {
         start = false
         runtime = 0
+        basic.clearScreen()
         Sensors.SetLightLevel()
     } else {
         music.playTone(440, 400)
         basic.showNumber(receivedNumber)
         runtime = receivedNumber
     }
+})
+
+input.onButtonPressed(Button.AB, function () {
+    basic.showNumber(runtime)
 })
 
 
