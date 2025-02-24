@@ -3,6 +3,7 @@ let start = false
 let runtime = 0
 
 Sensors.SetLightLevel()
+radio.setTransmitPower(100)
 
 Sensors.OnLightDrop(function() {
     if (start === true){
