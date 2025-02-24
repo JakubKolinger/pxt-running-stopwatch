@@ -19,6 +19,7 @@ input.onButtonPressed(Button.B, function() {
     start = false
     basic.showString("N")
     Sensors.SetLightLevel()
+    basic.clearScreen()
 })
 
 input.onButtonPressed(Button.A, function() {
